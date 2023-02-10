@@ -25,7 +25,15 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #7dd3fc;
+  /* background: #7dd3fc; */
+  background-image: linear-gradient(
+    to top,
+    #3d388f,
+    #3860b2,
+    #3e87cf,
+    #57ade7,
+    #7dd3fc
+  );
 }
 
 form {
@@ -36,7 +44,8 @@ form {
 }
 
 form header {
-  color: #7dd3fc;
+  /* color: #7dd3fc; */
+  color: linear-gradient(to top, #3d388f, #3860b2, #3e87cf, #57ade7, #7dd3fc);
   font-size: 28px;
   font-weight: 500;
   text-align: center;
@@ -70,7 +79,15 @@ form .url-input {
 .url-input .field .bottom-line {
   height: 2px;
   width: 100%;
-  background: #7dd3fc;
+  /* background: #7dd3fc; */
+  background-image: linear-gradient(
+    to top,
+    #3d388f,
+    #3860b2,
+    #3e87cf,
+    #57ade7,
+    #7dd3fc
+  );
   position: absolute;
   bottom: 0;
   left: 0;
@@ -91,7 +108,19 @@ form .preview-area {
   flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
-  border: 2px dashed #7dd3fc;
+  /* border: 2px dashed #7dd3fc; */
+  background-image: linear-gradient(
+    to top,
+    #3d388f,
+    #3860b2,
+    #3e87cf,
+    #57ade7,
+    #7dd3fc
+  );
+}
+
+.preview-area.active {
+  border: none;
 }
 
 .preview-area .thumbnail {
@@ -100,13 +129,32 @@ form .preview-area {
   display: none;
 }
 
+.preview-area.active .thumbnail {
+  display: block;
+}
+
 .preview-area .icon {
-  color: #7dd3fc;
+  /* color: #7dd3fc; */
+  color: linear-gradient(to top, #3d388f, #3860b2, #3e87cf, #57ade7, #7dd3fc);
   font-size: 80px;
 }
 
+.preview-area.active .icon,
+.preview-area.active span {
+  display: none;
+}
+
 .preview-area span {
-  color: #7dd3fc;
+  /* color: #7dd3fc; */
+  background-image: linear-gradient(
+    to top,
+    #3d388f,
+    #3860b2,
+    #3e87cf,
+    #57ade7,
+    #7dd3fc
+  );
+
   margin-top: 25px;
 }
 
@@ -115,7 +163,15 @@ form .download-btn {
   width: 100%;
   outline: none;
   border: none;
-  background: #7dd3fc;
+  /* background: #7dd3fc; */
+  background-image: linear-gradient(
+    to top,
+    #3d388f,
+    #3860b2,
+    #3e87cf,
+    #57ade7,
+    #7dd3fc
+  );
   border-radius: 5px;
   margin: 30px 0 20px 0;
   color: white;
