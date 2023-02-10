@@ -1,3 +1,36 @@
+<?php
+
+if(isset($_POST['download'])){
+  //if download button clicked
+
+  //getting image url from hidden input
+  $imgUrl = $_POST['imgurl'];
+
+  //initializing curl
+  $ch = curl_init($imgUrl);
+
+  //it transfers data as the return value of curl_exec rather then output
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+
+  //executing curl
+  $download= curl_exec($ch);
+
+  curl_close($ch);//closing curl session
+
+  //setting content type of header to image/jpg so we can get img in jpg not in base64 format
+  header('Content-type: image/jpg');
+
+   //setting Content-Disposition to indicating browser this file should download with given file name
+  header('Content-Disposition: attachment;filename="thumbnail.jpg"');
+  echo $download; //download img in jpg format
+}
+
+
+?>
+
+
+<!-- //added php -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +48,7 @@
     />
   </head>
   <body>
-    <form action="#">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
       <header>Download Thumbnail</header>
       <div class="url-input">
         <span class="title">Paste Video Url:</span>
@@ -25,15 +58,17 @@
             placeholder="https://www.youtube.com/watch?v="
             required
           />
+          <input class="hidden-input" type="hidden" name="imgurl"/>
           <div class="bottom-line"></div>
         </div>
       </div>
       <div class="preview-area">
-        <img class="thumbnail" src="h.jpg" alt="thumbnail" />
+        <img class="thumbnail" src="" alt="thumbnail" />
         <i class="icon fas fa-cloud-download-alt"></i>
         <span>Paste video url to see preview</span>
       </div>
-      <button class="download-btn" type="submit">Download</button>
+      <button class="download-btn" type="submit" name="download">Download</button>
     </form>
   </body>
+  <script src="script.js"></script>
 </html>
